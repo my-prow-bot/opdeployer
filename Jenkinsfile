@@ -12,12 +12,16 @@ pipeline {
 
     stages {
         stage('Install Helm') {
-    steps {
-        sh '''
-            curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-        '''
-    }
-}
+                 steps {
+                sh '''
+                  curl -LO https://get.helm.sh/helm-v3.18.4-linux-amd64.tar.gz
+                  tar -zxvf helm-v3.18.4-linux-amd64.tar.gz
+                  mv linux-amd64/helm /usr/local/bin/helm || cp linux-amd64/helm ./helm
+                  chmod +x ./helm
+                  ./helm version
+                '''
+            }
+        }
         stage('Configure Git') {
             steps {
                 sh '''
