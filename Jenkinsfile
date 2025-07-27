@@ -41,7 +41,7 @@ pipeline {
                 script {
                     // If Helm is used
                     sh """
-                        helm upgrade --install my-operator ./helm-chart \\
+                        ./helm upgrade --install my-operator ./helm-chart \\
                             --namespace ${params.NAMESPACE} \\
                             --set image.tag=${params.OPERATOR_VERSION}
                     """
