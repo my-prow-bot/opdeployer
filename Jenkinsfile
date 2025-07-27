@@ -11,6 +11,13 @@ pipeline {
     }
 
     stages {
+        stage('Install Helm') {
+    steps {
+        sh '''
+            curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+        '''
+    }
+}
         stage('Configure Git') {
             steps {
                 sh '''
