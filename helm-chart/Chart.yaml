@@ -1,0 +1,4 @@
+apiVersion: v2
+name: my-operator
+description: A sample Helm chart for my-operator
+version: 0.1.0
