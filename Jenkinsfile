@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Checkout') {
             steps {
-                git 'https://github.com/my-prow-bot/operator-repo.git'
+                git branch: 'main', url: 'https://github.com/my-prow-bot/opdeployer.git'
             }
         }
 
